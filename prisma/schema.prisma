@@ -1,0 +1,30 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlserver"
+  url      = env("DATABASE_URL")
+}
+
+
+model StmtEmailLog  {
+emailLogSk Int @map("email_log_sk") @id 
+customerNo String @map("customer_no")
+cardNo String @map("card_no")
+accountNo String @map("account_no")
+customerName String @map("customer_name")
+emailAddress String @map("email_address")
+statementDate DateTime @map("statement_date")
+emailDelivStatus String @map("email_deliv_status")
+emailDate DateTime @map("email_date")
+stmtCycleDay String @map("stmt_cycle_day")
+stmtCycleMnth String @map("stmt_cycle_mnth")
+stmtCycleYear String @map("stmt_cycle_year")
+pdfFilePath String @map("pdf_file_path")
+createdOn DateTime @map("created_on")
+@@map("stmt_email_log")
+}
